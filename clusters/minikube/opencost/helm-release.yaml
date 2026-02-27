@@ -5,16 +5,19 @@ metadata:
   namespace: opencost
 spec:
   interval: 5m
+  releaseName: opencost
   chart:
     spec:
       chart: opencost
-      version: "1.35.0" # or latest
       sourceRef:
         kind: HelmRepository
         name: opencost
-        namespace: opencost
+        namespace: flux-system
+  targetNamespace: opencost
   values:
     prometheus:
-      service:
-        name: prometheus-kube-prometheus-prometheus
-        namespace: monitoring
+      internal:
+        enabled: false
+      external:
+        enabled: true
+        address: http://prometheus-kube-prometheus-prometheus.monitoring:9090
