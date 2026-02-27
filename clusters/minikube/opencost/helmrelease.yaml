@@ -14,6 +14,8 @@ spec:
         namespace: flux-system
   values:
     opencost:
+      ui:
+        baseUrl: /
       prometheus:
         internal:
           enabled: true
