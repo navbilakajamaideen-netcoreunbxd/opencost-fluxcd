@@ -15,10 +15,10 @@ spec:
         namespace: flux-system
   targetNamespace: opencost
   values:
-  opencost:
-    prometheus:
-      external:
-        enabled: true
-        address: http://prometheus-kube-prometheus-prometheus.monitoring.svc:9090
-      internal:
-        enabled: false
+    opencost:
+      prometheus:
+        external:
+          enabled: true
+          address: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+        internal:
+          enabled: false
