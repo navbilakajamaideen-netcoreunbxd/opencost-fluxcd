@@ -19,6 +19,6 @@ spec:
       prometheus:
         external:
           enabled: true
-          address: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
+          url: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
         internal:
           enabled: false
