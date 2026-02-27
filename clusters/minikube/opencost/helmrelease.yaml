@@ -16,6 +16,8 @@ spec:
   targetNamespace: opencost
   values:
     opencost:
+      ui:
+        baseUrl: /
       prometheus:
         external:
           enabled: true
