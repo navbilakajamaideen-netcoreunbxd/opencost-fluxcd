@@ -5,7 +5,6 @@ metadata:
   namespace: opencost
 spec:
   interval: 5m
-  releaseName: opencost
   chart:
     spec:
       chart: opencost
@@ -13,14 +12,11 @@ spec:
         kind: HelmRepository
         name: opencost
         namespace: flux-system
-  targetNamespace: opencost
   values:
     opencost:
-      ui:
-        baseUrl: /
       prometheus:
-        external:
-          enabled: true
-          url: http://prometheus-kube-prometheus-prometheus.monitoring.svc.cluster.local:9090
         internal:
-          enabled: false
+          enabled: true
+          namespaceName: monitoring
+          serviceName: prometheus-kube-prometheus-prometheus
+          port: 9090
