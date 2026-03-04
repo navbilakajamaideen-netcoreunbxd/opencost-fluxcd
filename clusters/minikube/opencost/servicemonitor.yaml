@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: opencost
+  namespace: monitoring
+  labels:
+    release: prometheus
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opencost
+  namespaceSelector:
+    matchNames:
+      - opencost
+  endpoints:
+    - targetPort: 9003
+      path: /metrics
+      interval: 30s
