@@ -12,13 +12,28 @@ spec:
         kind: HelmRepository
         name: opencost
         namespace: flux-system
+
   values:
     opencost:
-      ui:
-        baseUrl: /
+      exporter:
+        defaultClusterId: minikube-cluster
+
       prometheus:
         internal:
           enabled: true
           namespaceName: monitoring
           serviceName: prometheus-kube-prometheus-prometheus
           port: 9090
+
+    ui:
+      enabled: true
+      advanced:
+        enabled: true   # 👈 THIS enables Advanced UI
+
+    resources:
+      requests:
+        cpu: 200m
+        memory: 256Mi
+      limits:
+        cpu: 1
+        memory: 1G
