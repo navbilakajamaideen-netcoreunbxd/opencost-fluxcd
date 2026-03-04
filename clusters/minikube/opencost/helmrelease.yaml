@@ -29,10 +29,8 @@ spec:
       exporter:
         defaultClusterId: minikube
 
-      prometheus:
-        external:
-          enabled: true
-          url: http://vm-victoria-metrics-single-server.monitoring.svc.cluster.local:8428
+    # Use this key for external Prometheus / VictoriaMetrics
+    prometheusURL: http://vm-victoria-metrics-single-server.monitoring.svc.cluster.local:8428
 
     ui:
       enabled: true
