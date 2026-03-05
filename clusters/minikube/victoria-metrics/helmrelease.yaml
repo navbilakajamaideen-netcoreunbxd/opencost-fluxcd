@@ -14,3 +14,13 @@ spec:
         namespace: flux-system
   values:
     retentionPeriod: 7d
+
+    vmagent:
+      extraScrapeConfigs: |
+        - job_name: "opencost"
+          scrape_interval: 1m
+          metrics_path: /metrics
+          scheme: http
+          static_configs:
+            - targets:
+                - opencost-exporter.opencost-exporter.svc.cluster.local:9003
