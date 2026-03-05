@@ -1,19 +1,6 @@
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-metadata:
-  name: opencost-exporter
-  namespace: flux-system
-spec:
-  interval: 5m
-  path: ./clusters/minikube/opencost
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: flux-system
-    namespace: flux-system
-  validation: client
-
-  resources:
-    - namespace.yaml
-    - helmrepository.yaml
-    - helmrelease.yaml
+resources:
+  - namespace.yaml
+  - helmrepository.yaml
+  - helmrelease.yaml
