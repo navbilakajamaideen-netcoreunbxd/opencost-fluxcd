@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - helmrepository.yaml
-  - opencost_release.yaml
+  - helmrelease.yaml
