@@ -12,3 +12,8 @@ spec:
     name: flux-system
     namespace: flux-system
   validation: client
+
+  resources:
+    - namespace.yaml
+    - helmrepository.yaml
+    - helmrelease.yaml
